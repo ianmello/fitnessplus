@@ -4,6 +4,7 @@ import '../../common/colo_extension.dart';
 import '../../common_widget/round_button.dart';
 import '../../common_widget/setting_row.dart';
 import '../../common_widget/title_subtitle_cell.dart';
+import '../../view/login/complete_profile_view.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 
 class ProfileView extends StatefulWidget {
@@ -17,24 +18,32 @@ class _ProfileViewState extends State<ProfileView> {
   bool positive = false;
 
   List accountArr = [
-    {"image": "assets/img/p_personal.png", "name": "Personal Data", "tag": "1"},
-    {"image": "assets/img/p_achi.png", "name": "Achievement", "tag": "2"},
+    {
+      "image": "assets/img/p_personal.png",
+      "name": "Dados pessoais",
+      "tag": "1"
+    },
+    {"image": "assets/img/p_achi.png", "name": "Conquistas", "tag": "2"},
     {
       "image": "assets/img/p_activity.png",
-      "name": "Activity History",
+      "name": "Histórico de atividades",
       "tag": "3"
     },
     {
       "image": "assets/img/p_workout.png",
-      "name": "Workout Progress",
+      "name": "Progresso nos treinos",
       "tag": "4"
     }
   ];
 
   List otherArr = [
-    {"image": "assets/img/p_contact.png", "name": "Contact Us", "tag": "5"},
-    {"image": "assets/img/p_privacy.png", "name": "Privacy Policy", "tag": "6"},
-    {"image": "assets/img/p_setting.png", "name": "Setting", "tag": "7"},
+    {"image": "assets/img/p_contact.png", "name": "Contate nos", "tag": "5"},
+    {
+      "image": "assets/img/p_privacy.png",
+      "name": "Política de privacidade e segurança",
+      "tag": "6"
+    },
+    {"image": "assets/img/p_setting.png", "name": "Configurações", "tag": "7"},
   ];
   @override
   Widget build(BuildContext context) {
@@ -45,30 +54,10 @@ class _ProfileViewState extends State<ProfileView> {
         elevation: 0,
         leadingWidth: 0,
         title: Text(
-          "Profile",
+          "Perfil",
           style: TextStyle(
               color: TColor.black, fontSize: 16, fontWeight: FontWeight.w700),
         ),
-        actions: [
-          InkWell(
-            onTap: () {},
-            child: Container(
-              margin: const EdgeInsets.all(8),
-              height: 40,
-              width: 40,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: TColor.lightGray,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Image.asset(
-                "assets/img/more_btn.png",
-                width: 15,
-                height: 15,
-                fit: BoxFit.contain,
-              ),
-            ),
-          )
-        ],
       ),
       backgroundColor: TColor.white,
       body: SingleChildScrollView(
@@ -82,7 +71,7 @@ class _ProfileViewState extends State<ProfileView> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(30),
                     child: Image.asset(
-                      "assets/img/u2.png",
+                      "assets/img/u1.png",
                       width: 50,
                       height: 50,
                       fit: BoxFit.cover,
@@ -96,7 +85,7 @@ class _ProfileViewState extends State<ProfileView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Stefani Wong",
+                          "Pedro Doy",
                           style: TextStyle(
                             color: TColor.black,
                             fontSize: 14,
@@ -104,7 +93,7 @@ class _ProfileViewState extends State<ProfileView> {
                           ),
                         ),
                         Text(
-                          "Lose a Fat Program",
+                          "Perda de gordura",
                           style: TextStyle(
                             color: TColor.gray,
                             fontSize: 12,
@@ -117,17 +106,17 @@ class _ProfileViewState extends State<ProfileView> {
                     width: 70,
                     height: 25,
                     child: RoundButton(
-                      title: "Edit",
+                      title: "Editar",
                       type: RoundButtonType.bgGradient,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const ActivityTrackerView(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CompleteProfileView(),
+                          ),
+                        );
                       },
                     ),
                   )
@@ -140,8 +129,8 @@ class _ProfileViewState extends State<ProfileView> {
                 children: [
                   Expanded(
                     child: TitleSubtitleCell(
-                      title: "180cm",
-                      subtitle: "Height",
+                      title: "174cm",
+                      subtitle: "Altura",
                     ),
                   ),
                   SizedBox(
@@ -150,7 +139,7 @@ class _ProfileViewState extends State<ProfileView> {
                   Expanded(
                     child: TitleSubtitleCell(
                       title: "65kg",
-                      subtitle: "Weight",
+                      subtitle: "Peso",
                     ),
                   ),
                   SizedBox(
@@ -158,8 +147,8 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                   Expanded(
                     child: TitleSubtitleCell(
-                      title: "22yo",
-                      subtitle: "Age",
+                      title: "22 anos",
+                      subtitle: "Idade",
                     ),
                   ),
                 ],
@@ -180,7 +169,7 @@ class _ProfileViewState extends State<ProfileView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Account",
+                      "Conta",
                       style: TextStyle(
                         color: TColor.black,
                         fontSize: 16,
@@ -199,7 +188,37 @@ class _ProfileViewState extends State<ProfileView> {
                         return SettingRow(
                           icon: iObj["image"].toString(),
                           title: iObj["name"].toString(),
-                          onPressed: () {},
+                          onPressed: () {
+                            switch (iObj["tag"].toString()) {
+                              case '1':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CompleteProfileView()));
+                                break;
+                              case '2':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CompleteProfileView()));
+                                break;
+                              case '3':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CompleteProfileView()));
+                                break;
+                              case '4':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CompleteProfileView()));
+                            }
+                          },
                         );
                       },
                     )
@@ -222,7 +241,7 @@ class _ProfileViewState extends State<ProfileView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Notification",
+                      "Notificações",
                       style: TextStyle(
                         color: TColor.black,
                         fontSize: 16,
@@ -244,7 +263,7 @@ class _ProfileViewState extends State<ProfileView> {
                             ),
                             Expanded(
                               child: Text(
-                                "Pop-up Notification",
+                                "Alertas",
                                 style: TextStyle(
                                   color: TColor.black,
                                   fontSize: 12,
@@ -273,11 +292,10 @@ class _ProfileViewState extends State<ProfileView> {
                                     Positioned(
                                         left: 10.0,
                                         right: 10.0,
-                                        
                                         height: 30.0,
                                         child: DecoratedBox(
                                           decoration: BoxDecoration(
-                                             gradient: LinearGradient(
+                                            gradient: LinearGradient(
                                                 colors: TColor.secondaryG),
                                             borderRadius:
                                                 const BorderRadius.all(
@@ -329,7 +347,7 @@ class _ProfileViewState extends State<ProfileView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Other",
+                      "Outros",
                       style: TextStyle(
                         color: TColor.black,
                         fontSize: 16,
@@ -349,7 +367,31 @@ class _ProfileViewState extends State<ProfileView> {
                         return SettingRow(
                           icon: iObj["image"].toString(),
                           title: iObj["name"].toString(),
-                          onPressed: () {},
+                          onPressed: () {
+                            switch (iObj["tag"].toString()) {
+                              case '5':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CompleteProfileView()));
+                                break;
+                              case '6':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CompleteProfileView()));
+                                break;
+                              case '7':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CompleteProfileView()));
+                                break;    
+                            }
+                          },
                         );
                       },
                     )

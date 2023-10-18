@@ -1,13 +1,11 @@
 import 'package:fitness/common/colo_extension.dart';
 import 'package:fitness/common_widget/tab_button.dart';
-import 'package:fitness/view/home/blank_view.dart';
 import 'package:fitness/view/main_tab/select_view.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home_view.dart';
 import '../photo_progress/photo_progress_view.dart';
 import '../profile/profile_view.dart';
-import '../workout_tracker/workout_tracker_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -27,13 +25,19 @@ class _MainTabViewState extends State<MainTabView> {
       body: PageStorage(bucket: pageBucket, child: currentTab),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(
-        width: 70,
-        height: 70,
+        width: 60,
+        height: 60,
         child: InkWell(
-          onTap: () {},
+                onTap: () {
+                  selectTab = 1;
+                  currentTab = const SelectView();
+                  if (mounted) {
+                    setState(() {});
+                  }
+                },
           child: Container(
-            width: 65,
-            height: 65,
+            width: 50,
+            height: 50,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: TColor.primaryG,
@@ -44,7 +48,7 @@ class _MainTabViewState extends State<MainTabView> {
                       color: Colors.black12,
                       blurRadius: 2,)
                 ]),
-            child: Icon(Icons.search,color: TColor.white, size: 35, ),
+            child: Image.asset("assets/img/ia_center_resized.png"),
           ),
         ),
       ),
