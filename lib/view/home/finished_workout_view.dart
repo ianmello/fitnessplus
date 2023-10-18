@@ -35,7 +35,7 @@ class _FinishedWorkoutViewState extends State<FinishedWorkoutView> {
               ),
         
               Text(
-                "Congratulations, You Have Finished Your Workout",
+                "Parabéns, Você Terminou O Seu Treino",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: TColor.black,
@@ -49,7 +49,7 @@ class _FinishedWorkoutViewState extends State<FinishedWorkoutView> {
               ),
 
               Text(
-                "Exercises is king and nutrition is queen. Combine the two and you will have a kingdom",
+                "A combinação de um treino bem feito e uma alimentação nutritiva é a chave para uma vida saudável",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: TColor.gray,

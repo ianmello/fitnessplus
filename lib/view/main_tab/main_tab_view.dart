@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import '../home/home_view.dart';
 import '../photo_progress/photo_progress_view.dart';
 import '../profile/profile_view.dart';
-import '../workout_tracker/workout_tracker_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
